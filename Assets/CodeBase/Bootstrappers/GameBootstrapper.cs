@@ -1,6 +1,8 @@
+using CodeBase.GameStates;
 using CodeBase.Infrastructure.EntryPoints;
-using UnityEngine;
-using UnityEngine.SceneManagement;
+using CodeBase.Infrastructure.ServiceLocator;
+using CodeBase.Services.GameStateMachine;
+using CodeBase.Services.SceneLoader;
 
 namespace CodeBase.Bootstrappers
 {
@@ -8,13 +10,12 @@ namespace CodeBase.Bootstrappers
     {
         public override void Bootstrap()
         {
-            Debug.Log("GLOBAL: Init");
+            IGameStateSwitcher gameStateSwitcher = AllServices.Container.Single<IGameStateSwitcher>();
 
-            DontDestroyOnLoad(gameObject);
+            gameStateSwitcher.AddState(new GameBootstrapState(gameStateSwitcher));
+            gameStateSwitcher.AddState(new LoadNextLevelState(AllServices.Container.Single<ISceneLoader>()));
 
-            Application.targetFrameRate = (int)Screen.currentResolution.refreshRateRatio.value;
-
-            SceneManager.LoadScene("Level_1"); // TEMP
+            gameStateSwitcher.Enter<GameBootstrapState>();
         }
     }
 }

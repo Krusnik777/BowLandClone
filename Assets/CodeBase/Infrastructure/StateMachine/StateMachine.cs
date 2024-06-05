@@ -1,13 +1,14 @@
 using System;
 using System.Collections.Generic;
-using UnityEngine;
 
 namespace CodeBase.Infrastructure.StateMachine
 {
-    public class StateMachine
+    public abstract class StateMachine
     {
         private Dictionary<Type, object> states;
         private object currentState;
+
+        public object CurrentState => currentState;
 
         public StateMachine()
         {
