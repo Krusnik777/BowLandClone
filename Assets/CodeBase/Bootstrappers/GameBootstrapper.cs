@@ -10,6 +10,8 @@ namespace CodeBase.Bootstrappers
     {
         public override void Bootstrap()
         {
+            DontDestroyOnLoad(this); // TEMP?
+
             IGameStateSwitcher gameStateSwitcher = AllServices.Container.Single<IGameStateSwitcher>();
 
             gameStateSwitcher.AddState(new GameBootstrapState(gameStateSwitcher));
