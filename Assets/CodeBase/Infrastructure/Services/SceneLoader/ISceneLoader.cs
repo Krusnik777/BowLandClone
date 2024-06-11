@@ -1,4 +1,4 @@
-using CodeBase.Infrastructure.ServiceLocator;
+using CodeBase.Infrastructure.DependencyInjection;
 using System;
 
 namespace CodeBase.Services.SceneLoader

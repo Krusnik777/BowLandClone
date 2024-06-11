@@ -1,19 +1,19 @@
 using CodeBase.Gameplay.Hero;
-using CodeBase.Infrastructure.AssetManagement;
-using CodeBase.Infrastructure.ServiceLocator;
+using CodeBase.Infrastructure.DependencyInjection;
 using CodeBase.Infrastructure.StateMachine;
+using CodeBase.Services.GameFactory;
 using UnityEngine;
 
 namespace CodeBase.LevelStates
 {
     public class LevelBootstrapState : IEnterableState, IService
     {
-        private IAssetProvider assetProvider;
+        private IGameFactory gameFactory;
         private HeroSpawnPoint heroSpawnPoint;
 
-        public LevelBootstrapState(IAssetProvider assetProvider, HeroSpawnPoint heroSpawnPoint)
+        public LevelBootstrapState(IGameFactory gameFactory, HeroSpawnPoint heroSpawnPoint)
         {
-            this.assetProvider = assetProvider;
+            this.gameFactory = gameFactory;
             this.heroSpawnPoint = heroSpawnPoint;
         }
 
@@ -21,7 +21,12 @@ namespace CodeBase.LevelStates
         {
             Debug.Log("LEVEL: Init");
 
-            GameObject hero = assetProvider.Instantiate<GameObject>(AssetPath.HeroPath);
+            /*
+            //GameObject hero = assetProvider.Instantiate<GameObject>(AssetPath.HeroPath);
+
+            GameObject heroPrefab = assetProvider.GetPrefab<GameObject>(AssetPath.HeroPath);
+            GameObject hero = dIContainer.Instantiate(heroPrefab);
+
             hero.transform.position = heroSpawnPoint.transform.position;
             hero.transform.rotation = heroSpawnPoint.transform.rotation;
 
@@ -29,6 +34,13 @@ namespace CodeBase.LevelStates
             followCamera.SetTarget(hero.transform);
 
             assetProvider.Instantiate<GameObject>(AssetPath.VirtualJoystickPath);
+            */
+
+            gameFactory.CreateHero(heroSpawnPoint.transform.position, heroSpawnPoint.transform.rotation);
+
+            gameFactory.CreateFollowCamera().SetTarget(gameFactory.Hero.transform);
+
+            gameFactory.CreateVirtualJoystick();
         }
     }
 }

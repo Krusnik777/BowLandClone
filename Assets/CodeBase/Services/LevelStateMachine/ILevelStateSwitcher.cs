@@ -1,4 +1,4 @@
-﻿using CodeBase.Infrastructure.ServiceLocator;
+﻿using CodeBase.Infrastructure.DependencyInjection;
 using CodeBase.Infrastructure.StateMachine;
 
 namespace CodeBase.Services.LevelStateMachine
