@@ -1,3 +1,4 @@
+using CodeBase.Gameplay.Hero;
 using CodeBase.Infrastructure.AssetManagement;
 using CodeBase.Infrastructure.DependencyInjection;
 using UnityEngine;
@@ -9,11 +10,13 @@ namespace CodeBase.Services.GameFactory
         private IAssetProvider assetProvider;
         private DIContainer dIContainer;
 
-        public GameObject Hero { get; private set; }
+        public GameObject HeroObject { get; private set; }
 
         public VirtualJoystick VirtualJoystick { get; private set; }
 
         public FollowCamera FollowCamera { get; private set; }
+
+        public HeroHealth HeroHealth { get; private set; }
 
         public GameFactory(IAssetProvider assetProvider, DIContainer dIContainer)
         {
@@ -24,12 +27,14 @@ namespace CodeBase.Services.GameFactory
         public GameObject CreateHero(Vector3 position, Quaternion rotation)
         {
             GameObject heroPrefab = assetProvider.GetPrefab<GameObject>(AssetPath.HeroPath);
-            Hero = dIContainer.Instantiate(heroPrefab);
+            HeroObject = dIContainer.Instantiate(heroPrefab);
 
-            Hero.transform.position = position;
-            Hero.transform.rotation = rotation;
+            HeroObject.transform.position = position;
+            HeroObject.transform.rotation = rotation;
 
-            return Hero;
+            HeroHealth = HeroObject.GetComponent<HeroHealth>();
+
+            return HeroObject;
         }
 
         public VirtualJoystick CreateVirtualJoystick()
@@ -56,6 +61,17 @@ namespace CodeBase.Services.GameFactory
             FollowCamera = CreateObject<FollowCamera>(AssetPath.FollowCameraPath);
 
             return FollowCamera;
+        }
+
+        public GameObject CreateEnemy(string path, Vector3 position)
+        {
+            GameObject enemyPrefab = assetProvider.GetPrefab<GameObject>(path);
+
+            GameObject enemy = dIContainer.Instantiate(enemyPrefab);
+
+            enemy.transform.position = position;
+
+            return enemy;
         }
 
         private T CreateObject<T>(string prefabPath) where T : Object

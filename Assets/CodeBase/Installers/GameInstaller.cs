@@ -41,6 +41,7 @@ namespace CodeBase.Installers
         {
             dIContainer.RegisterSingle<IGameStateSwitcher, GameStateMachine>();
             dIContainer.RegisterSingle<GameBootstrapState>();
+            dIContainer.RegisterSingle<LoadMainMenuState>();
             dIContainer.RegisterSingle<LoadNextLevelState>();
         }
     }

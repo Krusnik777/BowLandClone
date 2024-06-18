@@ -2,6 +2,7 @@ using CodeBase.Infrastructure.DependencyInjection;
 using CodeBase.Infrastructure.StateMachine;
 using CodeBase.Services.GameStateMachine;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace CodeBase.GameStates
 {
@@ -23,7 +24,10 @@ namespace CodeBase.GameStates
 
             Application.targetFrameRate = (int)Screen.currentResolution.refreshRateRatio.value;
 
-            gameStateSwitcher.Enter<LoadNextLevelState>();
+            if (SceneManager.GetActiveScene().name == Constants.BootstrapSceneName)
+            {
+                gameStateSwitcher.Enter<LoadMainMenuState>();
+            }
         }
     }
 }

@@ -8,12 +8,19 @@ namespace CodeBase.Bootstrappers
     {
         private ILevelStateSwitcher levelStateSwitcher;
         private LevelBootstrapState levelBootstrapState;
+        private LevelResearchState levelResearchState;
+        private LevelVictoryState levelVictoryState;
+        private LevelDefeatState levelDefeatState;
 
         [Inject]
-        public void Construct(ILevelStateSwitcher levelStateSwitcher, LevelBootstrapState levelBootstrapState)
+        public void Construct(ILevelStateSwitcher levelStateSwitcher, LevelBootstrapState levelBootstrapState,
+            LevelResearchState levelResearchState, LevelVictoryState levelVictoryState, LevelDefeatState levelDefeatState)
         {
             this.levelStateSwitcher = levelStateSwitcher;
             this.levelBootstrapState = levelBootstrapState;
+            this.levelResearchState = levelResearchState;
+            this.levelVictoryState = levelVictoryState;
+            this.levelDefeatState = levelDefeatState;
         }
 
         public override void OnBindResolved()
@@ -35,6 +42,9 @@ namespace CodeBase.Bootstrappers
         private void InitLevelStateMachine()
         {
             levelStateSwitcher.AddState(levelBootstrapState);
+            levelStateSwitcher.AddState(levelResearchState);
+            levelStateSwitcher.AddState(levelVictoryState);
+            levelStateSwitcher.AddState(levelDefeatState);
 
             levelStateSwitcher.Enter<LevelBootstrapState>();
         }

@@ -87,7 +87,7 @@ namespace CodeBase.Infrastructure.DependencyInjection
 
         public void InjectToGameObject(GameObject gameObject)
         {
-            MonoBehaviour[] monoBehaviours = gameObject.GetComponents<MonoBehaviour>();
+            MonoBehaviour[] monoBehaviours = gameObject.GetComponentsInChildren<MonoBehaviour>(true);
 
             for (int i = 0; i < monoBehaviours.Length; i++)
             {

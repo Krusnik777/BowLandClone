@@ -9,6 +9,7 @@ namespace CodeBase.Gameplay.Hero
         [SerializeField] private float m_movementSpeed;
 
         private Vector3 directionControl;
+        public Vector3 DirectionControl => directionControl;
 
         public void SetMoveDirection(Vector2 moveDirection)
         {

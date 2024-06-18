@@ -8,13 +8,15 @@ namespace CodeBase.Bootstrappers
     {
         private IGameStateSwitcher gameStateSwitcher;
         private GameBootstrapState gameBootstrapState;
+        private LoadMainMenuState loadMainMenuState;
         private LoadNextLevelState loadNextLevelState;
 
         [Inject]
-        public void Construct(IGameStateSwitcher gameStateSwitcher, GameBootstrapState gameBootstrapState, LoadNextLevelState loadNextLevelState)
+        public void Construct(IGameStateSwitcher gameStateSwitcher, GameBootstrapState gameBootstrapState, LoadMainMenuState loadMainMenuState, LoadNextLevelState loadNextLevelState)
         {
             this.gameStateSwitcher = gameStateSwitcher;
             this.gameBootstrapState = gameBootstrapState;
+            this.loadMainMenuState = loadMainMenuState;
             this.loadNextLevelState = loadNextLevelState;
         }
 
@@ -37,6 +39,7 @@ namespace CodeBase.Bootstrappers
         private void InitGameStateMachine()
         {
             gameStateSwitcher.AddState(gameBootstrapState);
+            gameStateSwitcher.AddState(loadMainMenuState);
             gameStateSwitcher.AddState(loadNextLevelState);
 
             gameStateSwitcher.Enter<GameBootstrapState>();

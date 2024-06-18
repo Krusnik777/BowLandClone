@@ -24,6 +24,11 @@ public class VirtualJoystick : MonoBehaviour, IPointerDownHandler, IDragHandler,
         Value = Vector2.zero;
     }
 
+    private void Start()
+    {
+        Value = Vector2.zero;
+    }
+
     private void Move(Vector2 newPos)
     {
         m_stick.position = newPos;
