@@ -1,9 +1,11 @@
+using CodeBase.Data;
+using CodeBase.Services.ProgressSaver;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace CodeBase.Gameplay.Hero
 {
-    public class HeroMeleeAttack : MonoBehaviour
+    public class HeroMeleeAttack : MonoBehaviour, IProgressLoadHandler
     {
         [SerializeField] private HeroMovement m_heroMovement;
         [SerializeField] private HeroAnimator m_animator;
@@ -14,6 +16,11 @@ namespace CodeBase.Gameplay.Hero
         private Health[] targets;
 
         private float timer;
+
+        public void Load(PlayerProgress playerProgress)
+        {
+            m_damage = playerProgress.HeroStats.Damage;
+        }
 
         private void Update()
         {

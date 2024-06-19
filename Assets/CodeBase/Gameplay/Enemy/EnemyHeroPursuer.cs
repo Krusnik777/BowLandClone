@@ -22,6 +22,11 @@ namespace CodeBase.Gameplay.Enemy
             m_followHero.enabled = false;
         }
 
+        private void OnDestroy()
+        {
+            gameFactory.HeroCondition.RemovePursuer(gameObject);
+        }
+
         private void Update()
         {
             if (gameFactory.HeroObject == null) return;
@@ -39,11 +44,13 @@ namespace CodeBase.Gameplay.Enemy
         private void StartPursuit()
         {
             m_followHero.enabled = true;
+            gameFactory.HeroCondition.AddPursuer(gameObject);
         }
 
         private void StopPursuit()
         {
             m_followHero.enabled = false;
+            gameFactory.HeroCondition.RemovePursuer(gameObject);
         }
 
 

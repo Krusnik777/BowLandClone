@@ -1,9 +1,12 @@
+using CodeBase.Configs;
 using CodeBase.Gameplay;
 using CodeBase.Infrastructure.DependencyInjection;
 using CodeBase.Infrastructure.StateMachine;
+using CodeBase.Services.ConfigsProvider;
 using CodeBase.Services.GameFactory;
 using CodeBase.Services.LevelStateMachine;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace CodeBase.LevelStates
 {
@@ -11,18 +14,22 @@ namespace CodeBase.LevelStates
     {
         private IGameFactory gameFactory;
         private ILevelStateSwitcher levelStateSwitcher;
-        private FinishPoint finishPoint;
+        private IConfigsProvider configsProvider;
 
-        public LevelResearchState(IGameFactory gameFactory, ILevelStateSwitcher levelStateSwitcher, FinishPoint finishPoint)
+        private LevelConfig levelConfig;
+
+        public LevelResearchState(IGameFactory gameFactory, ILevelStateSwitcher levelStateSwitcher, IConfigsProvider configsProvider)
         {
             this.gameFactory = gameFactory;
             this.levelStateSwitcher = levelStateSwitcher;
-            this.finishPoint = finishPoint;
+            this.configsProvider = configsProvider;
         }
 
         public void Enter()
         {
             gameFactory.HeroHealth.EventOnDie += OnHeroDie;
+
+            levelConfig = configsProvider.GetLevel(SceneManager.GetActiveScene().name);
         }
 
         public void Exit()
@@ -32,7 +39,13 @@ namespace CodeBase.LevelStates
 
         public void Tick()
         {
-            if (Vector3.Distance(gameFactory.HeroObject.transform.position, finishPoint.transform.position) < finishPoint.Radius)
+            if (gameFactory.HeroCondition.IsTargeted)
+            {
+                levelStateSwitcher.Enter<LevelBattleState>();
+                return;
+            }
+
+            if (Vector3.Distance(gameFactory.HeroObject.transform.position, levelConfig.FinishPoint) < FinishPoint.Radius)
             {
                 levelStateSwitcher.Enter<LevelVictoryState>();
             }

@@ -16,6 +16,8 @@ namespace CodeBase.Services.LevelStateMachine
         private void Update()
         {
             levelStateSwitcher.UpdateTick();
+
+            //Debug.Log(levelStateSwitcher.CurrentState.ToString());
         }
     }
 }

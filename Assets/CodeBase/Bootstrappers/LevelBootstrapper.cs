@@ -9,16 +9,18 @@ namespace CodeBase.Bootstrappers
         private ILevelStateSwitcher levelStateSwitcher;
         private LevelBootstrapState levelBootstrapState;
         private LevelResearchState levelResearchState;
+        private LevelBattleState levelBattleState;
         private LevelVictoryState levelVictoryState;
         private LevelDefeatState levelDefeatState;
 
         [Inject]
         public void Construct(ILevelStateSwitcher levelStateSwitcher, LevelBootstrapState levelBootstrapState,
-            LevelResearchState levelResearchState, LevelVictoryState levelVictoryState, LevelDefeatState levelDefeatState)
+            LevelResearchState levelResearchState, LevelBattleState levelBattleState, LevelVictoryState levelVictoryState, LevelDefeatState levelDefeatState)
         {
             this.levelStateSwitcher = levelStateSwitcher;
             this.levelBootstrapState = levelBootstrapState;
             this.levelResearchState = levelResearchState;
+            this.levelBattleState = levelBattleState;
             this.levelVictoryState = levelVictoryState;
             this.levelDefeatState = levelDefeatState;
         }
@@ -43,6 +45,7 @@ namespace CodeBase.Bootstrappers
         {
             levelStateSwitcher.AddState(levelBootstrapState);
             levelStateSwitcher.AddState(levelResearchState);
+            levelStateSwitcher.AddState(levelBattleState);
             levelStateSwitcher.AddState(levelVictoryState);
             levelStateSwitcher.AddState(levelDefeatState);
 

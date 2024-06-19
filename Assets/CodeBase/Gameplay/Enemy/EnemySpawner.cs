@@ -6,6 +6,9 @@ namespace CodeBase.Gameplay.Enemy
 {
     public class EnemySpawner : MonoBehaviour
     {
+        [SerializeField] private EnemyId m_enemyId;
+        public EnemyId EnemyId => m_enemyId;
+
         private IGameFactory gameFactory;
 
         [Inject]
@@ -16,7 +19,7 @@ namespace CodeBase.Gameplay.Enemy
 
         public void Spawn()
         {
-            gameFactory.CreateEnemy(AssetPath.Boxer, transform.position);
+            gameFactory.CreateEnemy(m_enemyId, transform.position);
         }
 
         #if UNITY_EDITOR

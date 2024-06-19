@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c901431fecc9d341b7ff8a55dbbddd3, type: 3}
+  m_Name: MainMenuWindow
+  m_EditorClassIdentifier: 
+  WindowId: 1
+  Title: Adventure Master
+  Prefab: {fileID: 4701782111393200301, guid: b69b31ea3783d6b41a1c6bffd1da21f4, type: 3}

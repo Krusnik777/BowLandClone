@@ -36,6 +36,11 @@ namespace CodeBase.Infrastructure.DependencyInjection
             services.Remove(typeof(TypeService));
         }
 
+        public Type CreateAndInject<Type>()
+        {
+            return (Type) CreateImplementation(typeof(Type));
+        }
+
         private object GetService(Type type)
         {
             if (services.ContainsKey(type)) return services[type];
