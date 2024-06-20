@@ -43,13 +43,6 @@ namespace CodeBase.LevelStates
                 enemySpawners[i].Spawn();
             }*/
 
-            EnemySpawnerData[] enemySpawnerDatas = levelConfig.EnemySpawnerDatas.ToArray();
-
-            for (int i = 0; i < enemySpawnerDatas.Length; i++)
-            {
-                await gameFactory.CreateEnemyAsync(enemySpawnerDatas[i].Id, enemySpawnerDatas[i].Position);
-            }
-
             await gameFactory.CreateHeroAsync(levelConfig.HeroSpawnPosition, Quaternion.identity);
 
             FollowCamera followCamera = await gameFactory.CreateFollowCameraAsync();
@@ -62,6 +55,13 @@ namespace CodeBase.LevelStates
             for (int i = 0; i < coinPositions.Length; i++)
             {
                 await gameFactory.CreateCoinAsync(coinPositions[i]);
+            }
+
+            EnemySpawnerData[] enemySpawnerDatas = levelConfig.EnemySpawnerDatas.ToArray();
+
+            for (int i = 0; i < enemySpawnerDatas.Length; i++)
+            {
+                await gameFactory.CreateEnemyAsync(enemySpawnerDatas[i].Id, enemySpawnerDatas[i].Position);
             }
 
             progressSaver.LoadProgress();
