@@ -1,12 +1,7 @@
-using CodeBase.GameStates;
 using CodeBase.Infrastructure.DependencyInjection;
 using CodeBase.Infrastructure.StateMachine;
-using CodeBase.Services.GameFactory;
-using CodeBase.Services.GameStateMachine;
-using CodeBase.Services.Input;
-using CodeBase.Services.ProgressProvider;
-using CodeBase.Services.ProgressSaver;
-using CodeBase.UI.Services.WindowsProvider;
+using CodeBase.Services;
+using CodeBase.UI.Services;
 
 namespace CodeBase.LevelStates
 {

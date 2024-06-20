@@ -1,6 +1,6 @@
 using CodeBase.Infrastructure.DependencyInjection;
 using CodeBase.LevelStates;
-using CodeBase.Services.LevelStateMachine;
+using CodeBase.Services;
 
 namespace CodeBase.Bootstrappers
 {

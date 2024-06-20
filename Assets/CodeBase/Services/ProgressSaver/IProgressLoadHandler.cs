@@ -1,6 +1,6 @@
 using CodeBase.Data;
 
-namespace CodeBase.Services.ProgressSaver
+namespace CodeBase.Services
 {
     public interface IProgressLoadHandler
     {

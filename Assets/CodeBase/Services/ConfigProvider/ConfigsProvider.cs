@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace CodeBase.Services.ConfigsProvider
+namespace CodeBase.Services
 {
     public class ConfigsProvider : IConfigsProvider
     {
@@ -21,14 +21,14 @@ namespace CodeBase.Services.ConfigsProvider
 
         public int LevelsAmount => levelList.Length;
 
-        public EnemyConfig GetConfig(EnemyId enemyId)
+        public EnemyConfig GetEnemy(EnemyId enemyId)
         {
             if (!enemies.ContainsKey(enemyId)) return null;
 
             return enemies[enemyId];
         }
 
-        public WindowConfig GetConfig(WindowId windowId)
+        public WindowConfig GetWindow(WindowId windowId)
         {
             if (!windows.ContainsKey(windowId)) return null;
 
@@ -47,6 +47,11 @@ namespace CodeBase.Services.ConfigsProvider
             if (!levels.ContainsKey(name)) return null;
 
             return levels[name];
+        }
+
+        public EnemyConfig[] GetAllEnemies()
+        {
+            return enemies.Values.ToArray();
         }
 
         public void Load()

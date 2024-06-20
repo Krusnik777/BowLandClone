@@ -8,12 +8,9 @@ namespace CodeBase.Data
         public event UnityAction<int> EventOnCoinsValueChanged;
         public int Coins;
 
-        public static HeroWallet GetDefaultWalletStatus()
+        public HeroWallet(int coins)
         {
-            HeroWallet wallet = new HeroWallet();
-            wallet.Coins = 0;
-
-            return wallet;
+            Coins = coins;
         }
 
         public void AddCoins(int coins)

@@ -1,5 +1,5 @@
 using CodeBase.Infrastructure.DependencyInjection;
-using CodeBase.Services.GameFactory;
+using CodeBase.Services;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -20,6 +20,10 @@ namespace CodeBase.Gameplay.Pickup
 
         private void OnTriggerEnter(Collider other)
         {
+            if (gameFactory == null) return;
+
+            if (gameFactory.HeroObject == null) return;
+
             if (other.gameObject == gameFactory.HeroObject)
             {
                 EventOnPicked?.Invoke();

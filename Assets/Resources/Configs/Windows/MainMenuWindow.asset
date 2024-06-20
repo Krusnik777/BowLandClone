@@ -14,4 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WindowId: 1
   Title: Adventure Master
-  Prefab: {fileID: 4701782111393200301, guid: b69b31ea3783d6b41a1c6bffd1da21f4, type: 3}
+  PrefabReference:
+    m_AssetGUID: b69b31ea3783d6b41a1c6bffd1da21f4
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0

@@ -1,9 +1,8 @@
 using CodeBase.Data;
-using CodeBase.Services.ProgressProvider;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace CodeBase.Services.ProgressSaver
+namespace CodeBase.Services
 {
     public class ProgressSaver : IProgressSaver
     {

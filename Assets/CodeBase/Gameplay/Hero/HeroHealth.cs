@@ -1,5 +1,5 @@
 using CodeBase.Data;
-using CodeBase.Services.ProgressSaver;
+using CodeBase.Services;
 using UnityEngine;
 
 namespace CodeBase.Gameplay.Hero

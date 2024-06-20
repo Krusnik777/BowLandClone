@@ -1,6 +1,6 @@
 using CodeBase.GameStates;
 using CodeBase.Infrastructure.DependencyInjection;
-using CodeBase.Services.GameStateMachine;
+using CodeBase.Services;
 
 namespace CodeBase.Bootstrappers
 {

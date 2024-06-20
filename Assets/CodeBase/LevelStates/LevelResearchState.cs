@@ -2,9 +2,7 @@ using CodeBase.Configs;
 using CodeBase.Gameplay;
 using CodeBase.Infrastructure.DependencyInjection;
 using CodeBase.Infrastructure.StateMachine;
-using CodeBase.Services.ConfigsProvider;
-using CodeBase.Services.GameFactory;
-using CodeBase.Services.LevelStateMachine;
+using CodeBase.Services;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 

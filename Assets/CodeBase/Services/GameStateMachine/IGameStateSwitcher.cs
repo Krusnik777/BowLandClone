@@ -2,7 +2,7 @@
 using CodeBase.Infrastructure.StateMachine;
 
 
-namespace CodeBase.Services.GameStateMachine
+namespace CodeBase.Services
 {
     public interface IGameStateSwitcher: IService
     {

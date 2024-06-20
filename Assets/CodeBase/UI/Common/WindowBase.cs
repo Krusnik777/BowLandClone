@@ -10,9 +10,11 @@ namespace CodeBase.UI
         [SerializeField] private Text m_titleText;
 
         public event UnityAction EventOnCleanuped;
+        public event UnityAction EventOnClosed;
 
         public void Close()
         {
+            EventOnClosed?.Invoke();
             OnClose();
         }
 
@@ -30,12 +32,12 @@ namespace CodeBase.UI
         private void Awake()
         {
             OnAwake();
-            m_closeButton?.onClick.AddListener(OnClose);
+            m_closeButton?.onClick.AddListener(Close);
         }
 
         private void OnDestroy()
         {
-            m_closeButton?.onClick.RemoveListener(OnClose);
+            m_closeButton?.onClick.RemoveListener(Close);
             OnCleanup();
             EventOnCleanuped?.Invoke();
         }

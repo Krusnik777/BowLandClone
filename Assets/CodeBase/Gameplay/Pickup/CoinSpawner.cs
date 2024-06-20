@@ -1,5 +1,5 @@
 using CodeBase.Infrastructure.DependencyInjection;
-using CodeBase.Services.GameFactory;
+using CodeBase.Services;
 using UnityEngine;
 
 namespace CodeBase.Gameplay.Pickup
@@ -16,7 +16,7 @@ namespace CodeBase.Gameplay.Pickup
 
         public void Spawn()
         {
-            gameFactory.CreateCoin(transform.position);
+            gameFactory.CreateCoinAsync(transform.position);
         }
 
 #if UNITY_EDITOR

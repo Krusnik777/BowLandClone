@@ -1,8 +1,8 @@
 using CodeBase.GameStates;
-using CodeBase.Services.ConfigsProvider;
-using CodeBase.Services.GameStateMachine;
-using CodeBase.Services.ProgressProvider;
+using CodeBase.Services;
+using CodeBase.UI.Services;
 using CodeBase.UI.Windows;
+using UnityEngine;
 
 namespace CodeBase.UI.Presenters
 {
@@ -11,14 +11,16 @@ namespace CodeBase.UI.Presenters
         private IGameStateSwitcher gameStateSwitcher;
         private IProgressProvider progressProvider;
         private IConfigsProvider configsProvider;
+        private IWindowsProvider windowsProvider;
 
         private MainMenuWindow window;
 
-        public MainMenuPresenter(IGameStateSwitcher gameStateSwitcher, IProgressProvider progressProvider, IConfigsProvider configsProvider)
+        public MainMenuPresenter(IGameStateSwitcher gameStateSwitcher, IProgressProvider progressProvider, IConfigsProvider configsProvider, IWindowsProvider windowsProvider)
         {
             this.gameStateSwitcher = gameStateSwitcher;
             this.progressProvider = progressProvider;
             this.configsProvider = configsProvider;
+            this.windowsProvider = windowsProvider;
         }
 
         public override void SetWindow(MainMenuWindow window)
@@ -37,18 +39,26 @@ namespace CodeBase.UI.Presenters
             }
 
             window.EventOnPlayButtonClicked += OnPlayButtonClicked;
+            window.EventOnShopButtonClicked += OnShopButtonClicked;
             window.EventOnCleanuped += OnWindowCleanuped;
         }
 
         private void OnWindowCleanuped()
         {
             window.EventOnPlayButtonClicked -= OnPlayButtonClicked;
+            window.EventOnShopButtonClicked -= OnShopButtonClicked;
             window.EventOnCleanuped -= OnWindowCleanuped;
         }
 
         private void OnPlayButtonClicked()
         {
             gameStateSwitcher.Enter<LoadNextLevelState>();
+        }
+
+        private void OnShopButtonClicked()
+        {
+            window.Close();
+            windowsProvider.Open(WindowId.ShopWindow);
         }
     }
 }

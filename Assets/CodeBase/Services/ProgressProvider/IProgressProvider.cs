@@ -1,7 +1,7 @@
 ﻿using CodeBase.Data;
 using CodeBase.Infrastructure.DependencyInjection;
 
-namespace CodeBase.Services.ProgressProvider
+namespace CodeBase.Services
 {
     public interface IProgressProvider : IService
     {

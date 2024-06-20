@@ -1,7 +1,6 @@
 using CodeBase.Infrastructure.DependencyInjection;
 using CodeBase.Infrastructure.StateMachine;
-using CodeBase.Services.GameFactory;
-using CodeBase.Services.LevelStateMachine;
+using CodeBase.Services;
 
 namespace CodeBase.LevelStates
 {

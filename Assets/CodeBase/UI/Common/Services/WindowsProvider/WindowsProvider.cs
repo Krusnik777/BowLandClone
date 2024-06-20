@@ -1,9 +1,8 @@
 using CodeBase.Configs;
-using CodeBase.Services.ConfigsProvider;
-using CodeBase.UI.Services.Factory;
+using CodeBase.Services;
 using CodeBase.UI.Windows;
 
-namespace CodeBase.UI.Services.WindowsProvider
+namespace CodeBase.UI.Services
 {
     public class WindowsProvider : IWindowsProvider
     {
@@ -20,16 +19,21 @@ namespace CodeBase.UI.Services.WindowsProvider
         {
             if (uIFactory.UIRoot == null) uIFactory.CreateUIRoot();
 
-            WindowConfig windowConfig = configsProvider.GetConfig(windowId);
+            WindowConfig windowConfig = configsProvider.GetWindow(windowId);
 
             if (windowId == WindowId.VictoryWindow || windowId == WindowId.DefeatWindow)
             {
-                uIFactory.CreateLevelResultWindow(windowConfig);
+                uIFactory.CreateLevelResultWindowAsync(windowConfig);
             }
 
             if (windowId == WindowId.MainMenuWindow)
             {
-                uIFactory.CreateMainMenuPresenter(windowConfig);
+                uIFactory.CreateMainMenuPresenterAsync(windowConfig);
+            }
+
+            if (windowId == WindowId.ShopWindow)
+            {
+                uIFactory.CreateShopPresenterAsync(windowConfig);
             }
         }
     }

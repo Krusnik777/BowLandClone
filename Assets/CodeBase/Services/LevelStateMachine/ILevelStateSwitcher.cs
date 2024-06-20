@@ -1,7 +1,7 @@
 ﻿using CodeBase.Infrastructure.DependencyInjection;
 using CodeBase.Infrastructure.StateMachine;
 
-namespace CodeBase.Services.LevelStateMachine
+namespace CodeBase.Services
 {
     public interface ILevelStateSwitcher : IService
     {

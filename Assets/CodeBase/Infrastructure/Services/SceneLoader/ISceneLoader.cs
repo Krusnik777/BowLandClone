@@ -1,7 +1,7 @@
 using CodeBase.Infrastructure.DependencyInjection;
 using System;
 
-namespace CodeBase.Services.SceneLoader
+namespace CodeBase.Infrastructure.Services
 {
     public interface ISceneLoader : IService
     {

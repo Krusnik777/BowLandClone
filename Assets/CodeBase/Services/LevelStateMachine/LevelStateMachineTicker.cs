@@ -1,7 +1,7 @@
 using CodeBase.Infrastructure.DependencyInjection;
 using UnityEngine;
 
-namespace CodeBase.Services.LevelStateMachine
+namespace CodeBase.Services
 {
     public class LevelStateMachineTicker : MonoBehaviour, IService
     {

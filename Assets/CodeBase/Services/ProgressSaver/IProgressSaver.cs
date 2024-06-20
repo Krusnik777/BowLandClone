@@ -1,7 +1,7 @@
 ﻿using CodeBase.Infrastructure.DependencyInjection;
 using UnityEngine;
 
-namespace CodeBase.Services.ProgressSaver
+namespace CodeBase.Services
 {
     public interface IProgressSaver : IService
     {

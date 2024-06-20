@@ -1,5 +1,5 @@
 using CodeBase.GameStates;
-using CodeBase.Services.GameStateMachine;
+using CodeBase.Services;
 using CodeBase.UI.Windows;
 
 namespace CodeBase.UI.Presenters
@@ -7,12 +7,14 @@ namespace CodeBase.UI.Presenters
     public class LevelResultPresenter : WindowPresenterBase<LevelResultWindow>
     {
         private IGameStateSwitcher gameStateSwitcher;
+        private IAdsService adsService;
 
         private LevelResultWindow window;
 
-        public LevelResultPresenter(IGameStateSwitcher gameStateSwitcher)
+        public LevelResultPresenter(IGameStateSwitcher gameStateSwitcher, IAdsService adsService)
         {
             this.gameStateSwitcher = gameStateSwitcher;
+            this.adsService = adsService;
         }
 
         public override void SetWindow(LevelResultWindow window)
@@ -31,6 +33,7 @@ namespace CodeBase.UI.Presenters
         private void OnLoadMainMenuButtonClicked()
         {
             gameStateSwitcher.Enter<LoadMainMenuState>();
+            adsService.ShowInterstital();
         }
     }
 }

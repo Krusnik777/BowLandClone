@@ -1,5 +1,5 @@
 using CodeBase.Infrastructure.DependencyInjection;
-using CodeBase.Services.GameFactory;
+using CodeBase.Services;
 using UnityEngine;
 
 namespace CodeBase.Gameplay.Enemy

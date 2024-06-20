@@ -5,6 +5,7 @@
         Unknown = 0,
         MainMenuWindow = 1,
         VictoryWindow = 2,
-        DefeatWindow = 3
+        DefeatWindow = 3,
+        ShopWindow = 4
     }
 }

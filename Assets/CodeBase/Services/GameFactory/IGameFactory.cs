@@ -2,9 +2,10 @@ using CodeBase.Gameplay.Enemy;
 using CodeBase.Gameplay.Hero;
 using CodeBase.Infrastructure.DependencyInjection;
 using CodeBase.UI.Elements;
+using System.Threading.Tasks;
 using UnityEngine;
 
-namespace CodeBase.Services.GameFactory
+namespace CodeBase.Services
 {
     public interface IGameFactory : IService
     {
@@ -14,10 +15,11 @@ namespace CodeBase.Services.GameFactory
         HeroHealth HeroHealth { get; }
         HeroCondition HeroCondition { get; }
 
-        GameObject CreateHero(Vector3 position, Quaternion rotation);
-        VirtualJoystick CreateVirtualJoystick();
-        FollowCamera CreateFollowCamera();
-        GameObject CreateEnemy(EnemyId id, Vector3 position);
-        GameObject CreateCoin(Vector3 position);
+        Task WarmUp();
+        Task<GameObject> CreateHeroAsync(Vector3 position, Quaternion rotation);
+        Task<VirtualJoystick> CreateVirtualJoystickAsync();
+        Task<FollowCamera> CreateFollowCameraAsync();
+        Task<GameObject> CreateCoinAsync(Vector3 position);
+        Task<GameObject> CreateEnemyAsync(EnemyId id, Vector3 position);
     }
 }

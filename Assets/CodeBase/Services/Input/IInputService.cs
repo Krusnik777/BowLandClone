@@ -1,7 +1,7 @@
 ﻿using CodeBase.Infrastructure.DependencyInjection;
 using UnityEngine;
 
-namespace CodeBase.Services.Input
+namespace CodeBase.Services
 {
     public interface IInputService : IService
     {

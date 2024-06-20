@@ -1,5 +1,5 @@
 using CodeBase.Infrastructure.DependencyInjection;
-using CodeBase.Services.GameFactory;
+using CodeBase.Services;
 using UnityEngine;
 
 namespace CodeBase.Gameplay.Enemy
@@ -19,7 +19,7 @@ namespace CodeBase.Gameplay.Enemy
 
         public void Spawn()
         {
-            gameFactory.CreateEnemy(m_enemyId, transform.position);
+            gameFactory.CreateEnemyAsync(m_enemyId, transform.position);
         }
 
         #if UNITY_EDITOR

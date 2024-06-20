@@ -1,7 +1,7 @@
 using CodeBase.Gameplay;
 using CodeBase.Infrastructure.DependencyInjection;
 using CodeBase.LevelStates;
-using CodeBase.Services.LevelStateMachine;
+using CodeBase.Services;
 using UnityEngine;
 
 namespace CodeBase.Installers

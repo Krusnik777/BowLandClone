@@ -1,6 +1,6 @@
 using UnityEditor;
 using UnityEditor.SceneManagement;
-using CodeBase.Services.ConfigsProvider;
+using CodeBase.Services;
 using CodeBase.Gameplay;
 using CodeBase.Gameplay.Hero;
 using UnityEngine;

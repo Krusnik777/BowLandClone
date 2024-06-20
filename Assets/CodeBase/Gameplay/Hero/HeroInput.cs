@@ -1,5 +1,5 @@
 using CodeBase.Infrastructure.DependencyInjection;
-using CodeBase.Services.Input;
+using CodeBase.Services;
 using UnityEngine;
 
 namespace CodeBase.Gameplay.Hero
@@ -24,6 +24,8 @@ namespace CodeBase.Gameplay.Hero
 
         private void Update()
         {
+            if (inputService == null) return;
+
             m_heroMovement.SetMoveDirection(inputService.MovementAxis);
         }
     }

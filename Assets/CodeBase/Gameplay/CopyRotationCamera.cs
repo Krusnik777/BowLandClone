@@ -1,5 +1,5 @@
 using CodeBase.Infrastructure.DependencyInjection;
-using CodeBase.Services.GameFactory;
+using CodeBase.Services;
 using UnityEngine;
 
 namespace CodeBase.Gameplay
@@ -16,6 +16,8 @@ namespace CodeBase.Gameplay
 
         private void Update()
         {
+            if (gameFactory == null) return;
+
             if (gameFactory.FollowCamera == null) return;
 
             transform.LookAt(transform.position + gameFactory.FollowCamera.transform.rotation * Vector3.forward, gameFactory.FollowCamera.transform.rotation * Vector3.up);

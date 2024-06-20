@@ -2,7 +2,7 @@ using CodeBase.Infrastructure.DependencyInjection;
 using System.Collections;
 using UnityEngine;
 
-namespace CodeBase.Services.CoroutineRunner
+namespace CodeBase.Infrastructure.Services
 {
     public interface ICoroutineRunner : IService
     {

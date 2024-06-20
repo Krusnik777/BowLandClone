@@ -1,5 +1,5 @@
 using CodeBase.Infrastructure.DependencyInjection;
-using CodeBase.Services.ProgressProvider;
+using CodeBase.Services;
 using UnityEngine;
 using UnityEngine.UI;
 

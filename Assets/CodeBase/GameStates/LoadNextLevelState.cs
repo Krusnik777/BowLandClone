@@ -1,8 +1,7 @@
 using CodeBase.Infrastructure.DependencyInjection;
+using CodeBase.Infrastructure.Services;
 using CodeBase.Infrastructure.StateMachine;
-using CodeBase.Services.ConfigsProvider;
-using CodeBase.Services.ProgressProvider;
-using CodeBase.Services.SceneLoader;
+using CodeBase.Services;
 using UnityEngine;
 
 namespace CodeBase.GameStates

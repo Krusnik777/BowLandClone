@@ -1,7 +1,7 @@
 ﻿using CodeBase.Infrastructure.DependencyInjection;
 using CodeBase.UI.Windows;
 
-namespace CodeBase.UI.Services.WindowsProvider
+namespace CodeBase.UI.Services
 {
     public interface IWindowsProvider : IService
     {

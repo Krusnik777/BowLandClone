@@ -19,4 +19,8 @@ MonoBehaviour:
   MovementSpeed: 4
   StopDistance: 1.5
   MaxHealth: 40
-  Prefab: {fileID: 5018123332570149846, guid: 319a4a3d24408564990e54da50fb6272, type: 3}
+  PrefabReference:
+    m_AssetGUID: 319a4a3d24408564990e54da50fb6272
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0

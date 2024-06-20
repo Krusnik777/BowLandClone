@@ -1,16 +1,8 @@
 using CodeBase.GameStates;
-using CodeBase.Infrastructure.AssetManagement;
 using CodeBase.Infrastructure.DependencyInjection;
-using CodeBase.Services.ConfigsProvider;
-using CodeBase.Services.CoroutineRunner;
-using CodeBase.Services.GameFactory;
-using CodeBase.Services.GameStateMachine;
-using CodeBase.Services.Input;
-using CodeBase.Services.ProgressProvider;
-using CodeBase.Services.ProgressSaver;
-using CodeBase.Services.SceneLoader;
-using CodeBase.UI.Services.Factory;
-using CodeBase.UI.Services.WindowsProvider;
+using CodeBase.Infrastructure.Services;
+using CodeBase.Services;
+using CodeBase.UI.Services;
 using UnityEngine;
 
 namespace CodeBase.Installers
@@ -39,6 +31,9 @@ namespace CodeBase.Installers
 
             dIContainer.RegisterSingle<IUIFactory, UIFactory>();
             dIContainer.RegisterSingle<IWindowsProvider, WindowsProvider>();
+
+            dIContainer.RegisterSingle<IAdsService,AdsService>();
+            dIContainer.RegisterSingle<IIAPService, IAPService>();
         }
 
         private void RegisterGameStateMachine()

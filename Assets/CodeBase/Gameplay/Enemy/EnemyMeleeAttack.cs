@@ -1,7 +1,7 @@
 using CodeBase.Configs;
 using CodeBase.Gameplay.Hero;
 using CodeBase.Infrastructure.DependencyInjection;
-using CodeBase.Services.GameFactory;
+using CodeBase.Services;
 using UnityEngine;
 using UnityEngine.AI;
 

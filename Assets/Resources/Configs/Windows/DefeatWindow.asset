@@ -14,4 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WindowId: 3
   Title: Defeat
-  Prefab: {fileID: 4701782111393200301, guid: 0a861bf98c91bf64fab16a76762a3289, type: 3}
+  PrefabReference:
+    m_AssetGUID: 0a861bf98c91bf64fab16a76762a3289
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0

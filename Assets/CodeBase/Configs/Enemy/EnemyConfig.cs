@@ -1,5 +1,6 @@
 using CodeBase.Gameplay.Enemy;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 namespace CodeBase.Configs
 {
@@ -13,6 +14,6 @@ namespace CodeBase.Configs
         public float MovementSpeed;
         public float StopDistance;
         public float MaxHealth;
-        public GameObject Prefab;
+        public AssetReferenceGameObject PrefabReference;
     }
 }
