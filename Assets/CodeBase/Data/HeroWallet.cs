@@ -6,22 +6,20 @@ namespace CodeBase.Data
     public class HeroWallet
     {
         public event UnityAction<int> EventOnCoinsValueChanged;
-
-        private int coins;
-        public int Coins => coins;
+        public int Coins;
 
         public static HeroWallet GetDefaultWalletStatus()
         {
             HeroWallet wallet = new HeroWallet();
-            wallet.coins = 0;
+            wallet.Coins = 0;
 
             return wallet;
         }
 
         public void AddCoins(int coins)
         {
-            this.coins += coins;
-            EventOnCoinsValueChanged?.Invoke(this.coins);
+            Coins += coins;
+            EventOnCoinsValueChanged?.Invoke(Coins);
         }
     }
 }
