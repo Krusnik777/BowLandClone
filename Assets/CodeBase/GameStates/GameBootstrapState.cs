@@ -9,7 +9,7 @@ using Unity.Services.Core;
 
 namespace CodeBase.GameStates
 {
-    public class GameBootstrapState : IEnterableState, IService
+    public class GameBootstrapState : IEnterableState, CodeBase.Infrastructure.DependencyInjection.IService
     {
         private IGameStateSwitcher gameStateSwitcher;
         private IConfigsProvider configsProvider;
